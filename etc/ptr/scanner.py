@@ -152,10 +152,14 @@ def scan_ptr(pe, pattern, offset):
 def scan_cragconnection(pe, pattern):
     pat, mask = parse_pattern(pattern)
 
+    print("Aoba... Scaneando CRagConnection...")
+
     for section in pe.sections:
         data = section.get_data()
         found = find_pattern(data, pat, mask)
+        print(found)
         if found is None:
+            print("Deu NONE")
             continue
 
         file_offset = section.PointerToRawData + found
@@ -163,6 +167,7 @@ def scan_cragconnection(pe, pattern):
 
         prologue = find_function_prologue(pe, rva)
         if not prologue:
+            print("Deu NOT PROLOGUE")
             continue
 
         if validate_cragconnection(pe, prologue):
@@ -173,8 +178,10 @@ def scan_cragconnection(pe, pattern):
 
 PATTERNS = {
     "CRAG_CONNECTION_PTR": {
-        "pattern": "55 8B EC 6A FF 68 ?? ?? ?? 00 64 A1 00 00 00 00 50 A1 ?? ?? ?? 01 33 C5 50 8D 45 F4 64 A3 00 00 00 00 64 A1 2C 00 00 00 8B 0D ?? ?? ?? 01 8B 0C",
-        "type": "crag"
+        "pattern": "55 8B EC 6A FF 68 63 D7 EB 00 64 A1 00 00 00 00 50 83 EC 18 A1 7C 1E 19 01 33 C5 89 45 F0 53 56 57 50 8D 45 F4 64 A3 00 00 00 00 68 40 A1 51 01",
+        "type": "ptr",
+        "offset": 0
+        ## 0xBE8760
     },
     "CHECKSUM_FUN_ADDRESS": {
         "pattern": "FF B6 84 00 00 00 FF B6 80 00 00 00 50 53 FF 75 0C E8 ?? ?? ?? ?? 8B 4E 74 83 C4 14 88 04 0B",

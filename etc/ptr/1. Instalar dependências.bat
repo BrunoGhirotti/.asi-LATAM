@@ -6,7 +6,7 @@ SETLOCAL EnableExtensions EnableDelayedExpansion
 
 ECHO #####################################################
 ECHO #####################################################
-ECHO ##                Gordão Programas                 ##
+ECHO ##                Gordao Programas                 ##
 ECHO ## Instalador Python 3.11 x86 + pefile + unlicense ##
 ECHO ##       Desenvolvido por: Bruno Costa - 2026      ##
 ECHO #####################################################

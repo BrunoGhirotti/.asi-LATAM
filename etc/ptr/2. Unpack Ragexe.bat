@@ -13,7 +13,7 @@ SET UNPACKED_EXE=%TARGET_FOLDER%\unpacked_%TARGET_EXE%
 
 ECHO #####################################################
 ECHO #####################################################
-ECHO ##                Gordão Programas                 ##
+ECHO ##                Gordao Programas                 ##
 ECHO ##              unpacker Ragexe.exe                ##
 ECHO ##       Desenvolvido por: ergrelet - 2022         ##
 ECHO #####################################################
