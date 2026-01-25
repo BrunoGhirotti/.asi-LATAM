@@ -1,5 +1,5 @@
 # Extraindo ponteiros
-Na pasta `etc/Ponteiros` você encontrará alguns `.bat` numerados para serem executados na ordem indicada.
+Na pasta deste documento você encontrará alguns `.bat` numerados para serem executados na ordem indicada.
 1. Faz *unpack* do Ragexe e salva na pasta como `unpacked_Ragexe.exe`
 **Obs.: se o jogo foi instalado em outro local, abra o `.bat` num editor de texto e edite o caminho na linha a seguir**
 	```batch
