@@ -1,9 +1,10 @@
-@echo off
+@ECHO OFF
 setlocal
 
 cd /d "%~dp0"
 
 where python >nul 2>&1
+
 if errorlevel 1 (
     echo [ERRO] Python nao encontrado no PATH.
     echo Instale o Python ou adicione ao PATH.
@@ -24,6 +25,7 @@ if not exist "unpacked_Ragexe.exe" (
 )
 
 python scanner.py unpacked_Ragexe.exe
+
 if errorlevel 1 (
     echo.
     echo [ERRO] Scanner retornou erro.
@@ -32,6 +34,6 @@ if errorlevel 1 (
 )
 
 COLOR 20
-echo.
-echo [OK] Scanner executado com sucesso.
-pause
+ECHO.
+ECHO [OK] Scanner executado com sucesso.
+PAUSE

@@ -2,30 +2,34 @@
 # GordOPK
 *DLL injetável **simples** para conectar o OpenKore ao cliente Ragnarök Online LATAM.*
 
-Este código é uma versão reduzida e **muito** comentada para fins de aprendizado e desenvolvimento: não possui interface gráfica, notificações nem outros recursos que fogem do conceito da simplicidade. É só **compilar e rodar!**
+Este código é uma versão **muito** reduzida e **muito** comentada para fins de estudo: não possui interface gráfica, notificações nem outros recursos que fogem do conceito da simplicidade.
+É só **compilar e rodar!**
+Você só precisa garantir que os endereços estejam de acordo com a versão do `Ragexe.exe` que você possui.
 
-Você só precisa garantir que os ponteiros estejam de acordo com a versão do `Ragexe.exe` mantida.
-
-**Acesse o [Discord da comunidade!](https://discord.gg/HyJjHK5zB2)**
+Dúvidas? **Acesse o [Discord da comunidade!](https://discord.gg/HyJjHK5zB2)**
 
 ## Dependências
-Todas as dependências necessárias estarão na pasta [`etc/deps`](etc/deps).
-Use os scripts para instalar o **necessário** para compilar e executar as ferramentas.
+### OpenKore
+[**É recomendável utilizar uma instalação limpa do OpenKore!**](etc/opk/readme.md)
+### Ferramentas
+Todas as dependências necessárias para compilar e extrair endereços estão na pasta [`etc/deps`](etc/deps).
+Use os scripts para **instalar o necessário** para compilar e executar as ferramentas.
 
 ## Compilando
-- Verifique se as **dependências foram instaladas**
-- Execute o `build.bat` na raiz do repositório: será gerado o `GordOPK.asi` na mesma pasta
+- Verifique se as **ferramentas foram instaladas**
+- Execute o `build.bat` da raiz do repositório: será gerado o `GordOPK.asi` na mesma pasta
 - Copie o `GordOPK.asi` para a pasta raiz do jogo
-- Inicie o OpenKore e o jogo - as configurações do OpenKore é de **sua responsabilidade!**
+- Inicie o OpenKore e o jogo
 
-### Extraindo ponteiros
-Veja detalhes [aqui!](etc/ptr/extraindo.md)
+## Extraindo endereços/ponteiros
+A extração de endereços essenciais para a DLL pode ser feita de diversas maneiras.
+[Aqui você pode encontrar ferramentas que podem te ajudar com isso!](etc/ptr/readme.md)
 
 ## Contribua e compartilhe!
+
 Ajude a democratizar o acesso **gratuito** ao OpenKore, **como tem que ser**!
 
-### Obrigado pelas estrelas!!
-Estrelas motivam!
+## Obrigado pelas estrelas!!
 <a href="https://www.star-history.com/#Brunnexo/GordOPK&type=date&legend=bottom-right">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Brunnexo/GordOPK&type=date&theme=dark&legend=bottom-right" />
@@ -33,3 +37,5 @@ Estrelas motivam!
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Brunnexo/GordOPK&type=date&legend=bottom-right" />
  </picture>
 </a>
+
+[**Estrelas motivam! ⭐**](https://www.star-history.com/#Brunnexo/GordOPK&type=date&legend=bottom-right)

@@ -6,8 +6,13 @@ SETLOCAL EnableExtensions EnableDelayedExpansion
 
 SET SCRIPT_DIR=%~dp0
 
+
+REM ##########################################
+REM ## EDITE O CAMINHO ABAIXO SE NECESSÁRIO ##
+REM ##########################################
 SET TARGET_FOLDER=C:\Gravity\Ragnarok
 SET TARGET_EXE=Ragexe.exe
+REM ##########################################
 
 SET UNPACKED_EXE=%TARGET_FOLDER%\unpacked_%TARGET_EXE%
 
@@ -27,9 +32,6 @@ if not exist "%TARGET_FOLDER%\%TARGET_EXE%" (
     exit /b 1
 )
 
-REM -------------------------------------------------
-REM Executa unlicense
-REM -------------------------------------------------
 ECHO.
 ECHO Executando unlicense...
 ECHO.
@@ -44,9 +46,6 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 
-REM -------------------------------------------------
-REM Verifica se o unpacked foi criado
-REM -------------------------------------------------
 if not exist "%UNPACKED_EXE%" (
     ECHO.
     ECHO [ERRO] Unpacked nao encontrado:
@@ -55,14 +54,11 @@ if not exist "%UNPACKED_EXE%" (
     exit /b 1
 )
 
-REM -------------------------------------------------
-REM Move o unpacked para a pasta do script
-REM -------------------------------------------------
 ECHO.
 ECHO Movendo executavel unpacked para a pasta do script...
 ECHO.
 
-move /Y "%UNPACKED_EXE%" "%SCRIPT_DIR%" >nul
+MOVE /Y "%UNPACKED_EXE%" "%SCRIPT_DIR%" >nul
 
 if not exist "%SCRIPT_DIR%\unpacked_%TARGET_EXE%" (
     ECHO.

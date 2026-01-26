@@ -40,10 +40,9 @@
 
 // Se quiser tirar o console, basta tirar
 // ou comentar essa linha abaixo!
-
 // O bom de deixar o console habilitado é
 // poder ver como o checksum é calculado
-#define CONSOLE
+// #define CONSOLE
 
 // Basicamente não precisa mudar nada no
 // código, apenas os parâmetros acima.
