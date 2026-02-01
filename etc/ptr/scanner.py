@@ -22,11 +22,6 @@ SPLASH = r"""
 #########################################################################################################
 #########################################################################################################
 """
-
-# -------------------------------------------------------------------------------------------------
-# Pattern helpers
-# -------------------------------------------------------------------------------------------------
-
 def parse_pattern(pattern):
     pat = []
     mask = []
@@ -39,7 +34,6 @@ def parse_pattern(pattern):
             mask.append("x")
     return pat, mask
 
-
 def find_pattern(data, pat, mask):
     plen = len(pat)
     for i in range(len(data) - plen + 1):  # FIX off-by-one
@@ -50,14 +44,8 @@ def find_pattern(data, pat, mask):
             return i
     return None
 
-
 def file_offset_to_rva(section, file_offset):
     return section.VirtualAddress + (file_offset - section.PointerToRawData)
-
-
-# -------------------------------------------------------------------------------------------------
-# PE helpers
-# -------------------------------------------------------------------------------------------------
 
 def find_function_prologue(pe, start_rva, max_back=0x300):
     start_off = pe.get_offset_from_rva(start_rva)
@@ -67,7 +55,7 @@ def find_function_prologue(pe, start_rva, max_back=0x300):
         off = start_off - back
         if off < 0:
             break
-        if data[off:off + 3] == b"\x55\x8B\xEC":  # push ebp; mov ebp, esp
+        if data[off:off + 3] == b"\x55\x8B\xEC":
             return pe.get_rva_from_offset(off)
 
     return None
@@ -84,10 +72,6 @@ def get_import_va(pe, dll, name):
                     return imp.address
     return None
 
-
-# -------------------------------------------------------------------------------------------------
-# Scanners
-# -------------------------------------------------------------------------------------------------
 
 def scan_call(pe, pattern):
     pat, mask = parse_pattern(pattern)
@@ -158,10 +142,6 @@ def scan_cragconnection(pe, pattern):
     return None
 
 
-# -------------------------------------------------------------------------------------------------
-# Patterns
-# -------------------------------------------------------------------------------------------------
-
 PATTERNS = {
     "CRAG_CONNECTION_PTR": {
         "pattern": "55 8B EC 6A FF 68 ?? ?? ?? ?? 64 A1 00 00 00 00 50 83 EC 18 A1 ?? ?? ?? ?? 33 C5 89 45 F0 53 56 57 50 8D 45 F4 64 A3 00 00 00 00 68 ?? ?? ?? ??",
@@ -186,10 +166,6 @@ PATTERNS = {
         "offset": 1
     }
 }
-
-# -------------------------------------------------------------------------------------------------
-# Main
-# -------------------------------------------------------------------------------------------------
 
 def main():
     if len(sys.argv) != 2:

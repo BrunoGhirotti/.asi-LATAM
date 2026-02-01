@@ -1,14 +1,12 @@
 @ECHO OFF
-COLOR 80
-CHCP 65001
+CHCP 65001 >nul
 CLS
 SETLOCAL EnableExtensions EnableDelayedExpansion
 
 SET SCRIPT_DIR=%~dp0
 
-
 REM ##########################################
-REM ## EDITE O CAMINHO ABAIXO SE NECESS�RIO ##
+REM ## EDITE O CAMINHO ABAIXO SE NECESSÁRIO ##
 REM ##########################################
 SET TARGET_FOLDER=C:\Gravity\Ragnarok
 SET TARGET_EXE=Ragexe.exe
@@ -17,11 +15,12 @@ REM ##########################################
 SET UNPACKED_EXE=%TARGET_FOLDER%\unpacked_%TARGET_EXE%
 
 ECHO #####################################################
-ECHO #####################################################
-ECHO ##                Gordao Programas                 ##
-ECHO ##              unpacker Ragexe.exe                ##
-ECHO ##       Desenvolvido por: ergrelet - 2022         ##
-ECHO #####################################################
+ECHO ##                                                 ##
+ECHO ##                 Gordão Programas                ##
+ECHO ##               unpacker Ragexe.exe               ##
+ECHO ##      Desenvolvido por: Bruno Costa - 2026       ##
+ECHO ##                      v1.1                       ##
+ECHO ##                                                 ##
 ECHO #####################################################
 
 if not exist "%TARGET_FOLDER%\%TARGET_EXE%" (
@@ -39,19 +38,19 @@ ECHO.
 cd %TARGET_FOLDER%
 python -m unlicense "%TARGET_EXE%"
 
-if %ERRORLEVEL% NEQ 0 (
+IF %ERRORLEVEL% NEQ 0 (
     ECHO.
     ECHO [ERRO] Falha ao executar unlicense.
     PAUSE
-    exit /b 1
+    EXIT /b 1
 )
 
-if not exist "%UNPACKED_EXE%" (
+IF NOT EXIST "%UNPACKED_EXE%" (
     ECHO.
     ECHO [ERRO] Unpacked nao encontrado:
     ECHO %UNPACKED_EXE%
     PAUSE
-    exit /b 1
+    EXIT /b 1
 )
 
 ECHO.
@@ -60,16 +59,20 @@ ECHO.
 
 MOVE /Y "%UNPACKED_EXE%" "%SCRIPT_DIR%" >nul
 
-if not exist "%SCRIPT_DIR%\unpacked_%TARGET_EXE%" (
+IF NOT EXIST "%SCRIPT_DIR%\unpacked_%TARGET_EXE%" (
     ECHO.
     ECHO [ERRO] Falha ao mover o executavel unpacked.
     PAUSE
-    exit /b 1
+    EXIT /b 1
 )
 
 COLOR 20
+CLS
+ECHO #####################################################
+ECHO ##                                                 ##
+ECHO ##               Processo finalizado               ##
+ECHO ##      unpacked_Ragexe.exe salvo localmente       ##
+ECHO ##                                                 ##
+ECHO #####################################################
 ECHO.
-ECHO ==========================================
-ECHO  Processo finalizado
-ECHO ==========================================
 PAUSE

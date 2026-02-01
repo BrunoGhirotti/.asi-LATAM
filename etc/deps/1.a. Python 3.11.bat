@@ -4,40 +4,46 @@ CHCP 65001 >nul
 CLS
 SETLOCAL EnableExtensions EnableDelayedExpansion
 
-ECHO #####################################################
-ECHO ##        Instalador Python 3.11 x86               ##
-ECHO ##        Desenvolvido por: Bruno Costa - 2026     ##
-ECHO #####################################################
-ECHO.
-
 SET PYTHON_VERSION=3.11.9
 SET PYTHON_EXE=python-3.11.9.exe
 SET PYTHON_URL=https://www.python.org/ftp/python/3.11.9/python-3.11.9.exe
-SET PYTHON_DIR=C:\Program Files (x86)\Python311
+SET PYTHON_DIR=%ProgramFiles(x86)%\Python311-32
 
-REM =====================================================
-REM Verifica se Python já está instalado
-REM =====================================================
+ECHO #####################################################
+ECHO ##                                                 ##
+ECHO ##         Instalador Python %PYTHON_VERSION% x86            ##
+ECHO ##       Desenvolvido por: Bruno Costa - 2026      ##
+ECHO ##                     v1.1                        ##
+ECHO ##                                                 ##
+ECHO #####################################################
+ECHO.
+
 python --version >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
-    COLOR 20
-    ECHO Python já está instalado no sistema.
-    python --version
+    CLS
+
+    ECHO #####################################################
+    ECHO ##                                                 ##
+    ECHO ## A seguinte versão já está instalada no sistema: ##
+    FOR /f "delims=" %%v in ('python.exe --version 2^>^&1') DO (
+        ECHO ##                 %%v                   ##
+        IF "%%v"=="Python %PYTHON_VERSION%" (
+            COLOR 20
+            ECHO ##           Esta versão é a desejada              ##
+        ) ELSE (
+            COLOR 60
+            ECHO ##    Esta versão não coincide com a desejada      ##
+            ECHO ##   Por favor, desinstale qualquer outra versão   ##
+        )
+    )
+    ECHO ##                                                 ##
+    ECHO #####################################################
     ECHO.
     PAUSE
     EXIT /B 0
 )
 
-IF EXIST "%PYTHON_DIR%\python.exe" (
-    ECHO Python encontrado em "%PYTHON_DIR%"
-    SET PATH=%PATH%;%PYTHON_DIR%;%PYTHON_DIR%\Scripts\
-    PAUSE
-    EXIT /B 0
-)
-
-REM =====================================================
-REM Download do instalador
-REM =====================================================
+ECHO.
 ECHO Baixando Python %PYTHON_VERSION% (32 bits)...
 ECHO.
 
@@ -51,9 +57,6 @@ IF NOT EXIST "%PYTHON_EXE%" (
     EXIT /B 1
 )
 
-REM =====================================================
-REM Instalação silenciosa
-REM =====================================================
 ECHO Instalando Python %PYTHON_VERSION%...
 ECHO.
 
@@ -69,18 +72,14 @@ IF %ERRORLEVEL% NEQ 0 (
     EXIT /B 1
 )
 
-REM =====================================================
-REM Atualiza PATH da sessão atual
-REM =====================================================
-SET PATH=%PATH%;%PYTHON_DIR%;%PYTHON_DIR%\Scripts\
-
-ECHO.
-python --version
-
 COLOR 20
 CLS
-ECHO ########################################
-ECHO ## Python instalado com sucesso!      ##
-ECHO ########################################
+ECHO #####################################################
+ECHO ##                                                 ##
+FOR /f "delims=" %%v in ('"%PYTHON_DIR%\python.exe" --version 2^>^&1') DO (
+    ECHO ##       %%v instalado com sucesso       ##
+)
+ECHO ##                                                 ##
+ECHO #####################################################
 ECHO.
 PAUSE
