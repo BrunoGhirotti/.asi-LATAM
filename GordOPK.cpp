@@ -63,11 +63,15 @@
 // Não precisa alterar os valores abaixo
 // se você quiser utilizar argumentos de
 // execução para sobrescrevê-los.
-// Exemplo: ragexe.exe 1rag1 -no-hook -ip 172.65.175.70 -korePort 6902 -socketPort 2349
+// Exemplo: ragexe.exe 1rag1 -ip 172.65.175.70 -korePort 6902 -socketPort 2349
+// -ip - define o IP estático do servidor
+// -korePort - define a porta do KoreProxy
+// -socketPort - define a porta do servidor checksum;plugin
+// -no-hook - desabilita os hooks de endereço (roda o jogo sem OpenKore)
 
 #define SOCKET_PORT				    2349            // -socketPort <porta>
 #define KORE_PORT				    6901            // -korePort <porta>
-#define KORE_IP                     "172.65.175.70" // -ip <endereço sem aspas>
+#define KORE_IP                     "172.65.175.70" // -ip <endereço>
 
 // ######################################
 // ##    -   VALORES OPCIONAIS   -     ##

@@ -14,6 +14,7 @@ Dúvidas? **Acesse o [Discord da comunidade!](https://discord.gg/HyJjHK5zB2)**
 ### Ferramentas
 Todas as dependências necessárias para compilar e extrair endereços estão na pasta [`etc/deps`](etc/deps).
 Use os scripts para **instalar o necessário** para compilar e executar as ferramentas.
+**Nota: instale o [GIT](https://git-scm.com/) para evitar problemas!**
 
 ## Compilando
 - Verifique se as **ferramentas foram instaladas**
