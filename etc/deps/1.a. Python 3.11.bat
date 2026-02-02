@@ -1,5 +1,4 @@
 @ECHO OFF
-COLOR 80
 CHCP 65001 >nul
 CLS
 SETLOCAL EnableExtensions EnableDelayedExpansion
@@ -24,16 +23,16 @@ IF %ERRORLEVEL% EQU 0 (
 
     ECHO #####################################################
     ECHO ##                                                 ##
-    ECHO ## A seguinte versão já está instalada no sistema: ##
+    ECHO ## A seguinte versao ja esta instalada no sistema: ##
     FOR /f "delims=" %%v in ('python.exe --version 2^>^&1') DO (
         ECHO ##                 %%v                   ##
         IF "%%v"=="Python %PYTHON_VERSION%" (
             COLOR 20
-            ECHO ##           Esta versão é a desejada              ##
+            ECHO ##           Esta versao e a desejada              ##
         ) ELSE (
             COLOR 60
-            ECHO ##    Esta versão não coincide com a desejada      ##
-            ECHO ##   Por favor, desinstale qualquer outra versão   ##
+            ECHO ##    Esta versao nao coincide com a desejada      ##
+            ECHO ##   Por favor, desinstale qualquer outra versao   ##
         )
     )
     ECHO ##                                                 ##
@@ -67,7 +66,7 @@ ECHO.
 
 IF %ERRORLEVEL% NEQ 0 (
     COLOR 40
-    ECHO [ERRO] Falha na instalação do Python.
+    ECHO [ERRO] Falha na instalacao do Python.
     PAUSE
     EXIT /B 1
 )

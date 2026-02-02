@@ -5,7 +5,7 @@ SETLOCAL EnableExtensions EnableDelayedExpansion
 
 ECHO #####################################################
 ECHO ##                                                 ##
-ECHO ##        Instalador de Dependências Python        ##
+ECHO ##        Instalador de Dependencias Python        ##
 ECHO ##      Desenvolvido por: Bruno Costa - 2026       ##
 ECHO ##                     v1.1                        ##
 ECHO ##                                                 ##
@@ -19,7 +19,7 @@ IF %ERRORLEVEL% NEQ 0 (
     COLOR 40
     ECHO #####################################################
     ECHO ##                                                 ##
-    ECHO ##   Python 3.11.9 não está instalado no sistema!  ##
+    ECHO ##   Python 3.11.9 nao esta instalado no sistema   ##
     ECHO ##                                                 ##
     ECHO #####################################################
     ECHO.
@@ -29,18 +29,18 @@ IF %ERRORLEVEL% NEQ 0 (
 
 FOR /f "delims=" %%v in ('python.exe --version 2^>^&1') DO (
     IF "%%v"=="Python 3.11.9" (
-        ECHO Versão correta do Python encontrada: %%v
+        ECHO Versao correta do Python encontrada: %%v
     ) ELSE (
         CLS
         COLOR 40
         ECHO #####################################################
         ECHO ##                                                 ##
-        ECHO ##  Python 3.11.9 não está instalado no sistema    ##
+        ECHO ##  Python 3.11.9 nao esta instalado no sistema    ##
         ECHO ##                                                 ##
         ECHO #####################################################
         ECHO.
-        ECHO Versão encontrada: %%v
-        ECHO A versão instalada não é compatível com os módulos necessários.
+        ECHO Versao encontrada: %%v
+        ECHO A versao instalada nao e compativel com os modulos necessarios.
         PAUSE
         EXIT /B 1
     )
@@ -59,7 +59,7 @@ python -m pip install --upgrade pip
 
 python -c "import pefile" >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
-    ECHO pefile já está instalado.
+    ECHO pefile ja esta instalado.
 ) ELSE (
     ECHO Instalando pefile...
     python -m pip install pefile
@@ -68,7 +68,7 @@ IF %ERRORLEVEL% EQU 0 (
 
 python -c "import unlicense" >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
-    ECHO unlicense já está instalado.
+    ECHO unlicense ja esta instalado.
 ) ELSE (
     ECHO Instalando unlicense...
     python -m pip install git+https://github.com/Brunnexo/unlicense.git
@@ -79,7 +79,7 @@ COLOR 20
 CLS
 ECHO #####################################################
 ECHO ##                                                 ##
-ECHO ##      Dependências instaladas com sucesso:       ##
+ECHO ##      Dependencias instaladas com sucesso:       ##
 python -c "import pefile; print('##                  pefile                         ##')"
 python -c "import unlicense; print('##                 unlicense                       ##')"
 ECHO ##                                                 ##
